@@ -1,0 +1,77 @@
+/*
+   PathCompacter.h
+   08/29/2015
+   Authors: Michael Casebolt, Brett Casebolt
+*/
+
+/*
+The MIT License (MIT)
+
+Copyright (c) 2015 Michael Casebolt and Brett Casebolt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+
+#ifndef PATH_COMPACTER_HEADER_INCLUDED
+#define PATH_COMPACTER_HEADER_INCLUDED
+
+#define  MINPOINT 5       //如果当前线段合并后的 起始位置和截止位置 之间的点数多于 MINPOINT ,则不能直接连接起始位置和截止位置,而是折一为二
+#define MINLENGTH  10000   //如果当前线段合并后的 起始位置和截止位置 之间的距离多于 MINLENGTH ,则不能直接连接起始位置和截止位置,而是折一为二
+
+// The following struct represents a double precision 2D point.
+typedef struct DVector2D
+{
+   double dX;
+   double dY;
+}DVector2D;
+
+// Use a typedef'd function pointer to refer to the metric calculation callbacks.
+// These accept the start and end point of the path or subproblem, and the intermediate
+// point in consideration. The square of the segment length is passed in as well so that the
+// callback does not have to recalculate it every time it gets called.
+// These callbacks must return the square of the actual value that they intend to be compared
+// against epsilon. This is because squaring often is better than sqrt'ing sometimes.
+typedef double (*DeviationMetric)(DVector2D /*startOfSegment*/, DVector2D /*endOfSegment*/,
+                                  DVector2D /*point*/, double /*dSquareSegmentLength*/);
+
+// This function iteratively simulates the recursive Ramer-Douglas-Peucker algorithm.
+// https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
+// Please allocate the resultPointArray to be as large as the pointArray passed in.
+// It would be a good idea to resize the allocated space for resultPointArray after this
+// function returns using the value of pointsInResultPath.
+// This algorithm works in-place. That is, you can use the same array for both pointArray
+// and resultPointArray, keeping in mind that doing so will likely alter pointArray.
+// Returns a true value (1) on successful completion, and returns a false value (0) otherwise.
+// On failure, pointsInResultPath and the contents of resultPointArray are undefined.
+//int compactPath(DVector2D *pPointArray, unsigned int uPointsInCurrentPath,
+//                DVector2D *pResultPointArray, unsigned int *puPointsInResultPath,
+//                double dEpsilon, DeviationMetric deviationMetric);
+
+
+int compactPath(DVector2D *pPointArray, unsigned int uPointsInCurrentPath,
+	DVector2D *pResultPointArray, unsigned int *puPointsInResultPath,
+	double dEpsilon, DeviationMetric deviationMetric);
+
+double perpendicularDistance(DVector2D start, DVector2D end, DVector2D mid,
+	double dSquareSegmentLength);
+
+double shortestDistanceToSegment(DVector2D start, DVector2D end, DVector2D mid,
+	double dSquareSegmentLength);
+
+#endif

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="EdDraw">
+      <UniqueIdentifier>{50926b6a-d6b9-49b4-97f8-2a39a5b4b5d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PathCompact">
+      <UniqueIdentifier>{bb769858-9c11-4e52-bb6c-ab80202b8499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{a151c1be-4198-4276-bf29-b554957a5596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JFA">
+      <UniqueIdentifier>{40751261-ecab-46bc-a221-ffc6cca04ee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Possion">
+      <UniqueIdentifier>{c1f5141d-0aa1-4832-93c9-d34735216077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CVTiter">
+      <UniqueIdentifier>{781966b0-a9bb-48b3-b23a-a48be8e10606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="triangle">
+      <UniqueIdentifier>{4b41a193-f19c-4b36-a518-9e83dca83e53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColorLab">
+      <UniqueIdentifier>{6c8e2f67-a4bc-4ae7-9d5f-ca4aa58ed0f7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PathCompact\PathCompacterRecursive.cpp">
+      <Filter>PathCompact</Filter>
+    </ClCompile>
+    <ClCompile Include="PathCompact\DeviationMetrics.cpp">
+      <Filter>PathCompact</Filter>
+    </ClCompile>
+    <ClCompile Include="EdDraw\testED.cpp">
+      <Filter>EdDraw</Filter>
+    </ClCompile>
+    <ClCompile Include="EdDraw\edlines.cpp">
+      <Filter>EdDraw</Filter>
+    </ClCompile>
+    <ClCompile Include="PathCompact\testPath.cpp">
+      <Filter>PathCompact</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Imglib.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\utils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="JFA\CVT.cpp">
+      <Filter>JFA</Filter>
+    </ClCompile>
+    <ClCompile Include="JFA\JFA.cpp">
+      <Filter>JFA</Filter>
+    </ClCompile>
+    <ClCompile Include="Poisson\testPoisson.cpp">
+      <Filter>Possion</Filter>
+    </ClCompile>
+    <ClCompile Include="Poisson\Poisson.cpp">
+      <Filter>Possion</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomSeeds\RandomSeeds.cpp">
+      <Filter>CVTiter</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle\triangle.cpp">
+      <Filter>triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorLab\ColorLab.cpp">
+      <Filter>ColorLab</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EdDraw\edlines.h">
+      <Filter>EdDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="PathCompact\PathCompacter.h">
+      <Filter>PathCompact</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Imglib.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\utils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="JFA\JFA.h">
+      <Filter>JFA</Filter>
+    </ClInclude>
+    <ClInclude Include="Poisson\Poisson.h">
+      <Filter>Possion</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomSeeds\RandomSeeds.h">
+      <Filter>CVTiter</Filter>
+    </ClInclude>
+    <ClInclude Include="triangle\triangle.h">
+      <Filter>triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorLab\ColorLab.h">
+      <Filter>ColorLab</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
